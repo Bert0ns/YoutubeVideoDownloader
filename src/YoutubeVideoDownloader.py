@@ -29,8 +29,13 @@ def download(link, path, name_file, only_audio):
 url_yt = input("Enter the YouTube video URL: ")
 show_info_video(url_yt)
 nameFile = input("Enter the new name of the file to download: ")
-print("Select the path of where do you want to save the video: ")
-saveFolder = filedialog.askdirectory()
+while 1:
+    print("Select the path of where do you want to save the video: ")
+    saveFolder = filedialog.askdirectory()
+    if saveFolder != "":
+        break
+    else:
+        print("There was an issue in selecting the path, retry")
 print("Path where the file will be saved: " + str(saveFolder))
 
 while 1:
