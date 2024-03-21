@@ -33,7 +33,7 @@ print("Select the path of where do you want to save the video: ")
 saveFolder = filedialog.askdirectory()
 print("Path where the file will be saved: " + str(saveFolder))
 
-while (1):
+while 1:
     answer = input("Do you want to download only audio? [yes / no]: ")
     if (answer != "yes") & (answer != "no"):
         print("Invalid answer, please write only [yes] or [no]")
