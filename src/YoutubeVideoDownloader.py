@@ -3,31 +3,31 @@ from pytube.exceptions import VideoUnavailable
 from tkinter import filedialog
 
 
-def ShowInfoVideo(link):
+def show_info_video(link):
     yt = YouTube(link)
     print(f"Title: {yt.title}")
 
 
-def download(link, path, nameFile, onlyAudio):
-    youtubeObject = YouTube(link)
-    if onlyAudio:
-        youtubeObject = youtubeObject.streams.get_audio_only()
+def download(link, path, name_file, only_audio):
+    yt_obj = YouTube(link)
+    if only_audio:
+        yt_obj = yt_obj.streams.get_audio_only()
         filetype = ".mp3"
     else:
-        youtubeObject = youtubeObject.streams.get_highest_resolution()
+        yt_obj = yt_obj.streams.get_highest_resolution()
         filetype = ".mp4"
     try:
         print("Downloading...")
-        downloadPath = youtubeObject.download(output_path=path, filename=nameFile + filetype)
+        download_path = yt_obj.download(output_path=path, filename=name_file + filetype)
         print("Download is completed successfully")
-        print("Download is at this path: " + downloadPath)
+        print("Download is at this path: " + download_path)
     except VideoUnavailable:
         print("An error has occurred, download FAILED")
 
 
 # MAIN
 url_yt = input("Enter the YouTube video URL: ")
-ShowInfoVideo(url_yt)
+show_info_video(url_yt)
 nameFile = input("Enter the new name of the file to download: ")
 print("Select the path of where do you want to save the video: ")
 saveFolder = filedialog.askdirectory()
@@ -39,7 +39,7 @@ while 1:
         print("Invalid answer, please write only [yes] or [no]")
         continue
     onlyAudio = answer == "yes"
-    download(link=url_yt, path=saveFolder, nameFile=nameFile, onlyAudio=onlyAudio)
+    download(link=url_yt, path=saveFolder, name_file=nameFile, only_audio=onlyAudio)
     break
 print("CREDITS -> Davide Bertoni, github.com/Bert0ns")
 input("Press enter to exit")
