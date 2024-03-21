@@ -31,12 +31,12 @@ show_info_video(url_yt)
 nameFile = input("Enter the new name of the file to download: ")
 while 1:
     print("Select the path of where do you want to save the video: ")
-    saveFolder = filedialog.askdirectory()
-    if saveFolder != "":
+    save_folder = filedialog.askdirectory()
+    if save_folder != "":
         break
     else:
         print("There was an issue in selecting the path, retry")
-print("Path where the file will be saved: " + str(saveFolder))
+print("Path where the file will be saved: " + str(save_folder))
 
 while 1:
     answer = input("Do you want to download only audio? [yes / no]: ")
@@ -44,7 +44,7 @@ while 1:
         print("Invalid answer, please write only [yes] or [no]")
         continue
     only_audio = answer == "yes"
-    download(link=url_yt, path=saveFolder, name_file=nameFile, only_audio=only_audio)
+    download(link=url_yt, path=save_folder, name_file=nameFile, only_audio=only_audio)
     break
 print("CREDITS -> Davide Bertoni, github.com/Bert0ns")
 input("Press enter to exit")
