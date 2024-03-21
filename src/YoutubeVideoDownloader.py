@@ -8,7 +8,7 @@ def ShowInfoVideo(link):
     print(f"Title: {yt.title}")
 
 
-def download(link, path, nameFile, onlyAudio=False):
+def download(link, path, nameFile, onlyAudio):
     youtubeObject = YouTube(link)
     if onlyAudio:
         youtubeObject = youtubeObject.streams.get_audio_only()
@@ -34,7 +34,7 @@ saveFolder = filedialog.askdirectory()
 print("Path where the file will be saved: " + str(saveFolder))
 
 while (1):
-    answer = input("Do you want to download only audio? [yes / no]")
+    answer = input("Do you want to download only audio? [yes / no]: ")
     if (answer != "yes") & (answer != "no"):
         print("Invalid answer, please write only [yes] or [no]")
         continue
@@ -42,4 +42,4 @@ while (1):
     download(link=url_yt, path=saveFolder, nameFile=nameFile, onlyAudio=onlyAudio)
     break
 print("CREDITS -> Davide Bertoni, github.com/Bert0ns")
-input("Press any key to exit")
+input("Press enter to exit")
