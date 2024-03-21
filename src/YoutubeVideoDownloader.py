@@ -38,8 +38,8 @@ while 1:
     if (answer != "yes") & (answer != "no"):
         print("Invalid answer, please write only [yes] or [no]")
         continue
-    onlyAudio = answer == "yes"
-    download(link=url_yt, path=saveFolder, name_file=nameFile, only_audio=onlyAudio)
+    only_audio = answer == "yes"
+    download(link=url_yt, path=saveFolder, name_file=nameFile, only_audio=only_audio)
     break
 print("CREDITS -> Davide Bertoni, github.com/Bert0ns")
 input("Press enter to exit")
