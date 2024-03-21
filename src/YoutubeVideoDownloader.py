@@ -8,9 +8,9 @@ def show_info_video(link):
     print(f"Title: {yt.title}")
 
 
-def download(link, path, name_file, only_audio):
+def download(link, path, name_file, only_audio_selected):
     yt_obj = YouTube(link)
-    if only_audio:
+    if only_audio_selected:
         yt_obj = yt_obj.streams.get_audio_only()
         filetype = ".mp3"
     else:
@@ -44,7 +44,7 @@ while 1:
         print("Invalid answer, please write only [yes] or [no]")
         continue
     only_audio = answer == "yes"
-    download(link=url_yt, path=save_folder, name_file=nameFile, only_audio=only_audio)
+    download(link=url_yt, path=save_folder, name_file=nameFile, only_audio_selected=only_audio)
     break
 print("CREDITS -> Davide Bertoni, github.com/Bert0ns")
 input("Press enter to exit")
